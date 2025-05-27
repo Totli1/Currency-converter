@@ -12,3 +12,4 @@ C:\Users\misha\source\repos\Currency converter\Currency converter\obj\Debug\net8
 C:\Users\misha\source\repos\Currency converter\Currency converter\obj\Debug\net8.0\Currency converter.pdb
 C:\Users\misha\source\repos\Currency converter\Currency converter\obj\Debug\net8.0\Currency converter.genruntimeconfig.cache
 C:\Users\misha\source\repos\Currency converter\Currency converter\obj\Debug\net8.0\ref\Currency converter.dll
+C:\Users\misha\source\repos\Currency converter\Currency converter\obj\Debug\net8.0\Currency converter.sourcelink.json

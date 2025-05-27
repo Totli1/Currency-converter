@@ -7,17 +7,28 @@ namespace Currency_converter
     {
         static async  Task Main(string[] args)
         {
-            Console.WriteLine("Введите первую валюту");
-            string first = Console.ReadLine();
-            Console.WriteLine("Введите вторую валюту");
-            string second = Console.ReadLine();
             using var client = new HttpClient();
-            string message = await client.GetStringAsync($"https://v6.exchangerate-api.com/v6/0188f496c2b1a16ea17833c5/latest/{first}");
+            string message = null;
+
             var options = new JsonSerializerOptions
             {
                 PropertyNameCaseInsensitive = true,
                 TypeInfoResolver = new DefaultJsonTypeInfoResolver()
             };
+
+
+            Console.WriteLine("Введите первую валюту");
+            string first = Console.ReadLine();
+            Console.WriteLine("Введите вторую валюту");
+            string second = Console.ReadLine();
+
+          
+
+            string json = File.ReadAllText("appsettings.json");
+            var get = JsonSerializer.Deserialize<GetAPI>(json, options);
+            message = await client.GetStringAsync($"{get.ApiKey}{first}");
+            
+
             var rates = JsonSerializer.Deserialize<ExchangeRateResponse>(message, options);
             if (rates.Conversion_rates.TryGetValue(second, out decimal usdRate))
             {
@@ -32,5 +43,10 @@ namespace Currency_converter
     {
         public Dictionary<string, decimal> Conversion_rates { get; set; }
     }
+    public class GetAPI
+    {
+        public string ApiKey { get; set; }
+    }
+
  
 }
