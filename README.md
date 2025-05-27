@@ -59,7 +59,7 @@
      public string ApiKey { get; set; }
  }
 ```
-##Код appsettings.json в котором хранится API 
+## Код appsettings.json в котором хранится API 
 ```json
 {
   "ApiKey": "https://v6.exchangerate-api.com/v6/0188f496c2b1a16ea17833c5/latest/"
